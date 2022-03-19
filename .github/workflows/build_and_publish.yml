@@ -17,8 +17,8 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
-          - distribution: 'adopt'
-          - java-version: '17'
+          distribution: 'adopt'
+          java-version: '17'
 
       - name: Build & Test
         run: mvn verify
@@ -32,8 +32,8 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
-          - distribution: 'adopt'
-          - java-version: '17'
+          distribution: 'adopt'
+          java-version: '17'
       - name: Publish to GitHub Packages Apache Maven
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
         env:
