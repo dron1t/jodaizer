@@ -1,0 +1,20 @@
+name: build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build_code:
+    name: "Build app & test"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@master
+
+      - name: Build
+        run: mvn quarkus:build
+
+      - name: Test
+        run: mvn verify
+
+
