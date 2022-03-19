@@ -1,4 +1,4 @@
-name: build & publish
+name: Build & Test -> Publish
 on:
   workflow_dispatch:
 
@@ -7,7 +7,7 @@ on:
       - main
 jobs:
   build:
-    name: "Build app, test, publish"
+    name: "Build app & test"
     runs-on: ubuntu-latest
 
     steps:
