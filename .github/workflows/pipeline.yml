@@ -21,9 +21,11 @@ jobs:
       - name: Build & Test
         run: mvn verify
 
-  publish:
+  publish-jar:
+    needs: build
     name: "Publish"
     runs-on: ubuntu-latest
+
     steps:
       - name: Setup Java
         uses: actions/setup-java@v2
