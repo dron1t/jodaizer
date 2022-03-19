@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 @Setter
 public class RequestBody {
 
-    @NotBlank(message = "{request.body.message.should.be.not.blank}")
+    @NotBlank(message = "{request.body.message.not.blank}")
     @Size(min = 1, max = 256, message = "{request.body.message.size}")
     private String message;
 }
