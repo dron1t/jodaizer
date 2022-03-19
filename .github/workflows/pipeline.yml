@@ -1,0 +1,36 @@
+name: build & publish
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: "Build app & test"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@master
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          - distribution: 'adopt'
+          - java-version: '17'
+
+      - name: Build & Test
+        run: mvn verify
+
+  publish:
+    name: "Publish"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Java
+          uses: actions/setup-java@v2
+          with:
+            - distribution: 'adopt'
+            - java-version: '17'
+    - name: Publish to GitHub Packages Apache Maven
+        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
