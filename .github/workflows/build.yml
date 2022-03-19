@@ -11,10 +11,18 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@master
 
-      - name: Build
-        run: mvn quarkus:build
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          - distribution: 'adopt'
+          - java-version: '17'
 
-      - name: Test
+      - name: Build & Test
         run: mvn verify
+
+      - name: Generate JaCoCo Badge
+          uses: cicirello/jacoco-badge-generator@v2
+          with:
+            generate-branches-badge: true
 
 
