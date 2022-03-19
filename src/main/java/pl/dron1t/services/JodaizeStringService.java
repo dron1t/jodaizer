@@ -9,15 +9,9 @@ import java.util.List;
 public class JodaizeStringService {
 
     public String jodaize(String message) {
-        var parts = message.split(",");
-        var result = new ArrayList<String>();
-        for (String part : parts) {
-            var list = part.split(" ");
-            result.addAll(List.of(list));
-        }
+        var parts = new ArrayList<>(List.of(message.split("[\\W]]")));
+        Collections.shuffle(parts);
 
-        Collections.shuffle(result);
-
-        return String.join(" ", result).replaceAll("\\s\\s", " ");
+        return String.join(" ", parts).replaceAll("\\s\\s", " ");
     }
 }
