@@ -9,7 +9,7 @@ import java.util.List;
 public class JodaizeStringService {
 
     public String jodaize(String message) {
-        var parts = new ArrayList<>(List.of(message.split("[\\W]]")));
+        var parts = new ArrayList<>(List.of(message.split("[\\W]")));
         Collections.shuffle(parts);
 
         return String.join(" ", parts).replaceAll("\\s\\s", " ");
