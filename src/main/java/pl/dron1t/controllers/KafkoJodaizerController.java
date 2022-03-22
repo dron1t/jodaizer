@@ -33,7 +33,7 @@ public class KafkoJodaizerController {
         return accepted().build();
     }
 
-    @GET()
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getAll() {

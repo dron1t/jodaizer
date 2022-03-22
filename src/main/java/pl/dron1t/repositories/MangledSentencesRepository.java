@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public interface MangledSentencesRepository {
 
-    public void addSentence(UUID uuid, String sentence);
+    void addSentence(UUID uuid, String sentence);
 
     Collection<String> getAllDb();
 

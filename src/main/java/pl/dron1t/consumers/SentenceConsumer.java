@@ -1,22 +1,22 @@
 package pl.dron1t.consumers;
 
+import io.smallrye.reactive.messaging.kafka.Record;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.jboss.logging.Logger;
+import pl.dron1t.repositories.MangledSentencesRepository;
+import pl.dron1t.services.JodaizeStringService;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.UUID;
-import io.smallrye.reactive.messaging.kafka.Record;
-import pl.dron1t.repositories.InMemoryMangledSentencedRepository;
-import pl.dron1t.services.JodaizeStringService;
 
 @ApplicationScoped
 public class SentenceConsumer {
 
     private final Logger logger = Logger.getLogger(SentenceConsumer.class);
-    private final InMemoryMangledSentencedRepository repository;
+    private final MangledSentencesRepository repository;
     private final JodaizeStringService jodaizeStringService;
 
-    public SentenceConsumer(InMemoryMangledSentencedRepository repository, JodaizeStringService jodaizeStringService) {
+    public SentenceConsumer(MangledSentencesRepository repository, JodaizeStringService jodaizeStringService) {
         this.repository = repository;
         this.jodaizeStringService = jodaizeStringService;
     }

@@ -8,7 +8,6 @@ public class InMemoryMangledSentencedRepository implements MangledSentencesRepos
 
     private final Map<UUID, String> db = new HashMap<>();
 
-
     @Override
     public void addSentence(UUID uuid, String sentence) {
         this.db.put(uuid, sentence);
